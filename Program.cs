@@ -1,4 +1,5 @@
-﻿int a = 100,b = 0;
+﻿using TratamentoExceptions;
+int a = 100,b = 0;
 double resultado = 0;
 
 try{
@@ -10,7 +11,6 @@ catch(DivideByZeroException ex){
 }
 catch (Exception ex){
     Console.WriteLine(ex.Message);
-    throw;
 }
 finally{
     Console.WriteLine("Divisão finalizada.");
@@ -18,7 +18,7 @@ finally{
 
 static double Dividir(int x,int y){
     if(y == 0) {
-        throw new DivideByZeroException();
+        throw new MinhaClasseException("Mensagem customizada");
     }
     return (x/y);
 }
